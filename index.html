@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glenn Fedesh Tayong | Systems Infrastructure Engineer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #10b981;
+      --primary-dark: #059669;
+      --secondary-color: #9ca3af;
+      --dark-bg: #111827;
+      --card-bg: #1f2937;
+      --text-light: #f3f4f6;
+      --text-dark: #e5e7eb;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-light);
+      line-height: 1.6;
+      background-color: var(--dark-bg);
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-light);
+    }
+
+    .display-1, .display-2, .display-3, .display-4 {
+      font-weight: 700;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 1.2rem 0;
+      background-color: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-color) !important;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.3rem;
+      transition: var(--transition);
+      border-radius: var(--border-radius);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color) !important;
+      background-color: rgba(16, 185, 129, 0.1);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+    }
+
+    /* Sections */
+    section {
+      padding: 7rem 0;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      padding: 10rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+
+    /* About Section */
+    .about-content {
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Address Section */
+    .address-section {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .address-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 100%;
+      transition: var(--transition);
+    }
+
+    .address-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .address-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skill Progress Bars */
+    .skill-progress {
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-name {
+      font-weight: 500;
+    }
+
+    .skill-percent {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .progress {
+      height: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    .progress-bar {
+      background-color: var(--primary-color);
+      border-radius: 4px;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Experience Section */
+    .experience-section {
+      background-color: var(--dark-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--card-bg);
+      border: 4px solid var(--primary-color);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::after {
+      right: -12px;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-form {
+      background-color: var(--card-bg);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-control {
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: rgba(31, 41, 55, 0.7);
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(16, 185, 129, 0.25);
+      background-color: rgba(31, 41, 55, 0.9);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0b1120;
+      color: var(--text-light);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.4rem;
+      margin: 0 0.8rem;
+      transition: var(--transition);
+      width: 45px;
+      height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+      background-color: rgba(16, 185, 129, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      section {
+        padding: 5rem 0;
+      }
+      
+      .hero {
+        padding: 7rem 0;
+        text-align: center;
+      }
+      
+      .hero-img {
+        margin-top: 3rem;
+        max-width: 80%;
+      }
+
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item::after {
+        left: 21px;
+      }
+
+      .left::after, .right::after {
+        left: 21px;
+      }
+
+      .right {
+        left: 0%;
+      }
+
+      .address-card {
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-progress {
+        margin-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        margin-bottom: 3rem;
+      }
+
+      .skill-progress {
+        margin-top: 1rem;
+      }
+
+      .skill-item {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Glenn Fedesh Tayong</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#address">Address</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero" data-aos="fade-in">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4">Glenn Fedesh Tayong</h1>
+          <h2 class="text-primary mb-4">Systems Infrastructure Engineer</h2>
+          <p class="lead mb-5">Designing and implementing reliable infrastructure solutions that power modern digital ecosystems and business operations.</p>
+          <div class="d-flex gap-4">
+            <a href="#experience" class="btn btn-primary px-4">View Experience</a>
+            <a href="#contact" class="btn btn-outline-primary px-4">Contact Me</a>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-5 mt-lg-0 text-center">
+          <img src="profile.jpeg" alt="Glenn Fedesh Tayong" class="img-fluid hero-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="about-content">
+            <p class="lead">I'm Glenn Fedesh Tayong, a systems infrastructure specialist with comprehensive expertise in enterprise hardware solutions and network architecture.</p>
+            <p>With hands-on experience in server deployment, network configuration, and hardware diagnostics, I deliver robust infrastructure solutions that ensure maximum uptime and performance. My methodology blends technical expertise with strategic planning to create resilient systems.</p>
+            <p>Beyond core infrastructure, I focus on integrating physical systems with cloud technologies, emphasizing security and adaptability to meet dynamic business requirements.</p>
+            <div class="mt-5">
+              <a href="#" class="btn btn-outline-primary me-3"><i class="fas fa-file-alt me-2"></i>Download CV</a>
+              <a href="#" class="btn btn-outline-primary"><i class="fab fa-linkedin-in me-2"></i>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Address Section -->
+  <section id="address" class="address-section">
+    <div class="container">
+      <h2 class="section-title">Contact Information</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="address-card">
+            <div class="address-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h4>Location</h4>
+            <p>Abuno Pajac, Lapu-lapu City</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="address-card">
+            <div class="address-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h4>Email</h4>
+            <p>glenn.tayong1@gmail.com</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="address-card">
+            <div class="address-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h4>Phone</h4>
+            <p>(+63) 9199457692</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="skill-progress">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Enterprise Systems</span>
+                <span class="skill-percent">53%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 53%" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Network Design</span>
+                <span class="skill-percent">64%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Infrastructure Security</span>
+                <span class="skill-percent">72%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="skill-progress">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">System Diagnostics</span>
+                <span class="skill-percent">48%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Data Storage</span>
+                <span class="skill-percent">55%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Cloud Integration</span>
+                <span class="skill-percent">67%</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row g-4 mt-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h4>Enterprise Systems</h4>
+            <p>Configuration and management of large-scale server environments for mission-critical operations.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <h4>Network Design</h4>
+            <p>Architecture and deployment of secure, high-performance network infrastructures.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4>Infrastructure Security</h4>
+            <p>Implementation of comprehensive security measures at the hardware and network levels.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <h2 class="section-title">Professional Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <h4>Lead Infrastructure Architect</h4>
+            <h5 class="text-primary">SystemCore Technologies</h5>
+            <p class="text-muted">2019 - Present</p>
+            <ul>
+              <li>Directed infrastructure modernization for Fortune 500 clients</li>
+              <li>Developed scalable network solutions for growing enterprises</li>
+              <li>Established hardware security standards across all deployments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-left">
+          <div class="timeline-content">
+            <h4>Systems Engineer</h4>
+            <h5 class="text-primary">NetSolutions Group</h5>
+            <p class="text-muted">2016 - 2019</p>
+            <ul>
+              <li>Managed corporate network infrastructure for 50+ locations</li>
+              <li>Implemented system monitoring and alert protocols</li>
+              <li>Optimized server performance across all business units</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item left" data-aos="fade-right">
+          <div class="timeline-content">
+            <h4>Infrastructure Specialist</h4>
+            <h5 class="text-primary">TechBuild Systems</h5>
+            <p class="text-muted">2013 - 2016</p>
+            <ul>
+              <li>Deployed customized server solutions for diverse clients</li>
+              <li>Conducted hardware repairs and performance upgrades</li>
+              <li>Implemented enterprise storage solutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Key Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="project-card">
+            <img src="data center.jfif" alt="Data Center Project" class="project-img">
+            <div class="project-body">
+              <h4>Enterprise Data Center</h4>
+              <p>Designed and implemented a 500-rack data center with 99.99% uptime guarantee.</p>
+              <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <img src="Network.png" alt="Network Upgrade" class="project-img">
+            <div class="project-body">
+              <h4>Network Infrastructure Upgrade</h4>
+              <p>Modernized legacy network systems with SD-WAN technology across 30 locations.</p>
+              <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card">
+            <img src="security.png" alt="Security Implementation" class="project-img">
+            <div class="project-body">
+              <h4>Hardware Security Framework</h4>
+              <p>Developed comprehensive physical security protocols for sensitive data environments.</p>
+              <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contact-form">
+            <form>
+              <div class="mb-4">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="mb-4">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="mb-4">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject">
+              </div>
+              <div class="mb-4">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p>&copy; 2025 Glenn Fedesh Tayong. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out-quart',
+      once: true,
+      mirror: false
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+    
+    // Navbar active state on scroll
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 400) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Add animation to hero section on load
+    window.addEventListener('load', () => {
+      const heroContent = document.querySelector('.hero .row');
+      heroContent.style.opacity = '0';
+      heroContent.style.transform = 'translateY(20px)';
+      heroContent.style.transition = 'all 0.8s ease-out';
+      
+      setTimeout(() => {
+        heroContent.style.opacity = '1';
+        heroContent.style.transform = 'translateY(0)';
+      }, 300);
+      
+      // Animate skill progress bars
+      const progressBars = document.querySelectorAll('.progress-bar');
+      progressBars.forEach(bar => {
+        const width = bar.getAttribute('aria-valuenow') + '%';
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
